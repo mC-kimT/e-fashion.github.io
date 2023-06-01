@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+    <title>FashCanvassing</title>
+    
+    <style>
+      body{
+        font-family: 'Century Gothic';
+        margin: 0;
+        padding: 0;
+        background-color: whitesmoke;
+      }
+      #nav{
+        min-width:100%;
+        background-color: green;
+        padding: 4px;
+        display: inline-flex;
+        color: white;
+        font-size: large;
+      }
+      #nav img{
+        width: 160px;
+      }
+      #prediction{
+        margin-bottom: 30px;
+      }
+      .nav_content{
+        margin-left: 2%;
+        margin-top: 10px;
+        font-weight: 500;
+      }
+      #sim{
+        padding:30px;
+        font-weight: 600 !important;
+        font-size: 2.5em;
+        text-decoration:underline green 3px;
+      }
+      #p_con{
+        padding-top: 50px;
+        text-align: center;
+      }
+      .fname{
+        font-size:large;
+        margin-top: 20px;
+        width:90%;
+        height: 100px;
+        white-space: normal;
+        background-color: white;
+        border:  white;
+        text-align: left;
+      }
+      #fname{
+        font-size:large;
+        width:90%;
+        white-space: normal;
+        background-color: white;
+        border:  white;
+        text-align: left;
+      }
+      table{
+        text-align: center;
+        width: 100%;
+        height: 1000px;
+        padding: 20px;
+        border-top:1px solid #005000;
+      }
+      table tr td div{
+        padding: 20px;
+        margin: 10px;
+        text-align: left;
+        border-bottom:1px solid #005000;
+      }
+      .store{
+        display: inline-flex;
+        margin-top: 5%;
+      }
+      .store button{
+        margin-left: 20px;
+      }
+      #filter_{
+        margin-top: 20px;
+      }
+      #p_con{
+        width: 100%;
+      }
+      .item_image{
+        width: 250px;
+        height: 300px;
+      }
+      .container{
+        background-color: white;
+      }
+      #webapp_data{
+        display: none;
+      }
+      #drp_btn, #dropdownMenuButton{
+        background-color: green;
+      }
+      #type_of_store{
+        display: block;
+      }
+      #footer{
+          padding: 50px;
+          margin-bottom: 0%;
+          font-family: 'Century Gothic';
+      }
+      .footer_con{
+          display: inline-block;
+          padding-top: 10px;
+          letter-spacing: 1px;
+          text-align: justify;
+          margin-left: 10%;
+      }
+      #footer p{
+          color: black;
+          font-size: 13px;
+      }
+      #ftitle{
+          font-weight: 500;
+          
+      }
+      #credits{
+          color: black;
+          text-align: center;
+          padding: 10px;
+          font-size: 10px;
+          margin-top: 30px;
+      }
+      .border{
+      width: auto;
+      background-color:green ;
+      padding: 1px;
+    }
+    #fixedbutton {
+    position: fixed;
+    bottom: 560px;
+    bottom: 20px;
+    right: 30px;
+    width: 50px;
+    }
+    #fixedbutton:hover{
+        opacity: .9;
+        width: 60px;
+    }
+      @media only screen and (max-width: 800px) {
+        body{
+          background-color: white;
+        }
+        #nav{
+          display: inline-block;
+          text-align: center;
+        }
+        #prediction{
+          display: inline-block;
+        }
+        #prediction img{
+          margin: 10px;
+        }
+        #Flipkart, #Walmart, #Shein{
+          display: none;
+        }
+        .dropdown{
+          display: block;
+        }
+        #webapp_data{
+          display: block;
+        }
+        #type_of_store{
+          display: none;
+        }
+      }
+    </style>
+</head>
+<body>
+
+  <div id="nav">
+    <a style="color: white;" href="{{ url_for('index_view') }}"><img src="{{ url_for('static', filename='upload/logo.png') }}" alt="efashion"></a>
+    <p class="nav_content">Similar Products</p>
+  </div>
+  <div class="container">
+ 
+  <div id="prediction" class="col-lg-6" style="padding-top: 30px;">
+      <span class=" border-primary"> 
+        <img src="{{user_image}}" alt="User Image" class="img-thumbnail" style="width: 250px; height: 250px; float:right">
+      </span>
+  </div>
+  <div  id="prediction" class="col-lg-6" style="padding-top: 50px;">
+    <p id="fname" style="font-size: 35px;">Category: {{predict}}</p>
+
+
+
+  </div>
+
+<center>
+<div id = "p_con">
+
+  <table id="sim_products" >
+
+    <tr >
+      <td>  <h4>{{rdm}}</h4> </td>
+      <td class="table_content" id="Amazon">
+          {% for amazonp in Amazon%}
+          <div class="content_con">
+              <a href= "https://www.{{amazonp['Store'].lower()}}.com{{amazonp['Link']}}" target="_blank"><img class="item_image" src="{{amazonp['Image']}}" alt="Product Image" ></a> <br>
+
+              <form action="/forward/" method="post">
+                <input type="submit" class="fname" name="fname" value="{{amazonp['Name']}}">
+              </form>
+              
+              <h4 style="color: green;">{{amazonp['Store']}}</h4>
+              <h4><b>{{amazonp['Price']}}</b></h4>
+          </div>
+          {% endfor %}
+        
+     </td>
+
+    <td class="table_content" id="Flipkart">
+      
+        {% for flipkartp in Flipkart%}
+        <div class="content_con">
+          <a  href= "https://www.{{flipkartp['Store'].lower()}}.com{{flipkartp['Link']}}" target="_blank"><img class="item_image" src="{{flipkartp['Image']}}" alt="Product Image" ></a> <br>
+
+          <form action="/forward/" method="post">
+            <input type="submit" class="fname" name="fname" value="{{flipkartp['Name']}}">
+          </form>
+          
+          <h4 style="color: green;">{{flipkartp['Store']}}</h4>
+          <h4><b>{{flipkartp['Price']}}</b></h4>
+        </div> 
+        {% endfor %}
+      
+    </td>
+
+    <td class="table_content" id="Walmart">
+      
+        {% for walmart in Walmart%}
+        <div class="content_con">
+          <a href= "https://www.{{walmart['Store'].lower()}}.com{{walmart['Link']}}" target="_blank"><img class="item_image" src="{{walmart['Image']}}" alt="Product Image" ></a> <br>
+
+          <form action="/forward/" method="post">
+            <input type="submit" class="fname" name="fname" value="{{walmart['Name']}}">
+          </form>
+          
+          <h4 style="color: green;">{{walmart['Store']}}</h4>
+          <h4><b>{{walmart['Price']}}</b></h4>
+        </div>
+        {% endfor %}
+      
+   </td>
+
+</tr>
+   
+    
+  </table> 
+</center>
+</div>
+
+<table id="webapp_data"></table>
+
+
+
+<div class='border'></div>
+<div id="footer">
+  <div class='footer_con'>
+      <p id="ftitle" class='add'>ADDRESS</p>
+      <p style="font-size: 15px;">Lower Penthouse, Fort Legend Towers, 3rd Avenue cor. <br> 31st Street, Bonifacio Global City, Taguig City</p>
+      <p style="font-size: 15px;">A.Z Avis Street Extension, Reiverside, Pasig, 1600 Metro Manila</p>
+  </div>
+
+  <div  class='footer_con' class='num'>
+      <p id="ftitle">CONTACT</p> 
+      <p style="font-size: 15px;">(02) 8828 7888 </p>
+
+      <p style="font-size: 15px;">primapasta03@gmail.com</p>
+  </div>
+  <div id='credits'>© 2023 Manalo Emielou and Effie Sarco.</div><br>  
+</div>  
+</div>
+
+<a href="#nav"><img src="{{ url_for('static', filename='upload/btn_up.png') }}"  id="fixedbutton"></a>
+
+<script>
+  var toTopButton = document.getElementById("fixedbutton");
+    toTopButton.style.display = "none";
+    document.querySelector('body').onscroll = function(){ 
+    if (window.scrollY > 50)
+        toTopButton.style.display = "block";
+    else
+        toTopButton.style.display = "none";
+    };
+</script>
+    
+</body>
+</html>

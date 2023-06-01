@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <style>
+      body{
+        background-color:whitesmoke;
+        font-family: 'Century Gothic';
+      }
+      #main_container{
+        width: 100%;
+      }
+      .container{
+        margin-left: 5%;
+        width: auto;
+        font-size: 20px;
+      }
+      #nav{
+        width: 100%;
+        background-color: green;
+        padding: 4px;
+        display: inline-flex;
+        color: white;
+        font-size: large;
+      }
+      #nav img{
+        width: 160px;
+      }
+      .nav_content{
+        margin-top: 10px;
+        margin-left: 1%;
+        font-weight: 500;
+        text-decoration: none;
+      }
+      #sticky{
+        position: sticky;
+        top: 0;
+        background-color: whitesmoke;
+        padding: 40px;
+        font-size: 15px;
+      }
+      table{
+        width: 50%;
+        height: 1000px;
+        padding: 20px;
+        background-color: white;
+        
+      }
+      table tr td div{
+        padding: 20px;
+        margin: 10px;
+        text-align: left;
+        padding-left: 20%;
+      }
+      .fname{
+        font-size:medium;
+        margin-top: 20px;
+        width:70%;
+        height: 50px;
+        white-space: normal;
+        background-color: white;
+        border:  white;
+        text-align: left;
+      }
+      .col-lg-7{
+        padding-top: 55px;
+      }
+      #footer{
+          padding: 50px;
+          margin-bottom: 0%;
+          font-family: 'Century Gothic';
+      }
+      .footer_con{
+          display: inline-block;
+          padding-top: 10px;
+          letter-spacing: 1px;
+          text-align: justify;
+          margin-left: 10%;
+      }
+      #footer p{
+          color: black;
+          font-size: 13px;
+      }
+      #ftitle{
+          font-weight: 500;
+          
+      }
+      #credits{
+          color: black;
+          text-align: center;
+          padding: 10px;
+          font-size: 10px;
+          margin-top: 30px;
+      }
+      #fixedbutton {
+        position: fixed;
+        bottom: 560px;
+        bottom: 20px;
+        right: 30px;
+        width: 50px;
+        }
+        #fixedbutton:hover{
+            opacity: .9;
+            width: 60px;
+        }
+
+      @media only screen and (max-width: 800px) {
+        .col-lg-7{
+        padding-top: 0%;
+        }
+        body{
+          background-color: white;
+        }
+        .fname{
+          font-size:x-large;
+          margin-top: 20px;
+          width:100%;
+          height: 100px;
+        }
+        #nav{
+        display: inline-block;
+        font-size: large;
+        text-align: center;
+
+      }
+        #main_container{
+          display: inline-block;
+        }
+        .container{
+          margin: 0%;
+        }
+        #sticky{
+          width: 100%;
+          height: 500px;
+          position: relative;
+          font-size: small;
+          padding: 0%;
+          font-size: 25px;
+          padding: 0%;
+          background-color: white;
+        }
+        .col-lg-7{
+          height: 0px;
+          padding: 0%;
+          width: 20px;
+        }
+        #sticky h1{
+          font-size: 30px;
+        }
+        table{
+          width: 30%;
+          padding: 10px;
+        }
+        table tr td div{
+          width: 120%;
+          padding: 0%;
+          margin: 0px;
+        }
+      }
+        
+  
+  
+      </style>
+
+</head>
+<body>
+
+  <div id="nav">
+    <a id="web_name" style="color: white;" href="{{ url_for('index_view') }}"><img src="{{ url_for('static', filename='upload/logo.png') }}" alt="efashion"></a>
+    <p class="nav_content" >Product Recommendations</p>
+  </div>
+
+<div id="main_container">
+    <div class="container">
+        <div class="col-lg-4" style="padding-top:30px; margin-top: 20px; " id="sticky">
+          <span class="border border-primary">
+            <img src="{{ image }}" alt="User Image" class="img-thumbnail" style="width:500px; border: 3px solid green; padding: 10px; height:400px;float:right">
+          </span>
+        </div>
+        <div class="col-lg-7"  id="sticky">
+          <a href="https://www.{{store.lower()}}.com{{link}}" style=" text-decoration: none; color: black;"><h3 name="pNmae" style="font-weight: 520;"> {{pName}}</h3></a>
+          <p style="color:green; font-weight: bold;">Price: {{price}}</p>
+        </div>
+
+        <div id = "p_con">
+          <table id="sim_products">
+          <tr>
+            {% for data in display%}
+              {%if data['Name'] != pName:%}
+             
+            <td >
+              <div>
+              <a href= "https://www.{{data['Store'].lower()}}.com{{data['Link']}}" target="_blank"><img class="p_img" src="{{data['Image']}}" alt="Product Image" width="250" height="250"></a> <br>
+  
+              <form action="/forward/" method="post">
+                <input type="submit" class="fname" name="fname" value="{{data['Name']}}">
+              </form>
+  
+              <h5>{{data['Store']}}</h5>
+              <h5 style="color: green; font-weight: bold;">{{data['Price']}}</h5>
+            </div> <br>
+          </td>
+        
+          </tr>
+          {% endif %}
+          {% endfor %}
+      
+        </table>
+      </div>
+    </div>
+    
+</div>
+<div>
+</div>
+
+
+<div class='border' style="border:1px solid green;"></div>
+<div id="footer">
+  <div class='footer_con'>
+      <p id="ftitle" class='add'>ADDRESS</p>
+      <p style="font-size: 15px;">Lower Penthouse, Fort Legend Towers, 3rd Avenue cor. <br> 31st Street, Bonifacio Global City, Taguig City</p>
+      <p style="font-size: 15px;">A.Z Avis Street Extension, Reiverside, Pasig, 1600 Metro Manila</p>
+  </div>
+
+  <div  class='footer_con' class='num'>
+      <p id="ftitle">CONTACT</p> 
+      <p style="font-size: 15px;">(02) 8828 7888 </p>
+
+      <p style="font-size: 15px;">primapasta03@gmail.com</p>
+  </div>
+  <div id='credits'>© 2023 Manalo Emielou and Effie Sarco.</div><br>  
+</div>  
+</div>
+
+<a href="#nav"><img src="{{ url_for('static', filename='upload/btn_up.png') }}"  id="fixedbutton"></a>
+
+<script>
+  var toTopButton = document.getElementById("fixedbutton");
+    toTopButton.style.display = "none";
+    document.querySelector('body').onscroll = function(){ 
+    if (window.scrollY > 50)
+        toTopButton.style.display = "block";
+    else
+        toTopButton.style.display = "none";
+    };
+</script>
+
+</body>
+</html>

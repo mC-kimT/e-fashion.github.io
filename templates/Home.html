@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+  
+  <title>Web Name</title>
+
+  <style>
+    body{
+      font-family: 'Century Gothic';
+      margin: 0%;
+      font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    }
+    #nav{
+      background-color:#228B22;
+      padding: 1px;
+      text-align: left;
+      color: aliceblue;
+      font-weight: bold;
+      margin: 2px 0;
+      letter-spacing: 2px;  
+    }
+    #nav img{
+        width: 160px;
+      }
+    /* @media (max-width: 768px) {
+    .nav {
+      width: 100%;
+      margin: 10px 0;
+    }
+  } */
+    #cnn_con{
+      width: 100%;
+      position: absolute;
+      top: 5%;
+      margin-left: 0%;
+      margin-right: 0%;
+      font-size: 20px;
+      height: auto;
+      
+    
+    }
+    #cnn_con img{
+      width: 70%;
+    }
+
+    .style {
+    border: 1px solid #ccc;
+    padding: 6px 12px;
+    border-radius: 4px;
+    background-color: #f5f5f5;
+    font-size: 14px;
+    height: auto;
+    left: 30%;
+    }
+
+    input[type=file] {
+      width: 350px;
+      max-width: 100%;
+      color: #444;
+      padding: 5px;
+      background: #fff;
+      border-radius: 10px;
+      border: 1px solid #555;
+    }
+
+    input[type=file]::file-selector-button{
+      margin-right: 20px;
+      border: none;
+      background: green;
+      padding: 10px 20px;
+      border-radius: 10px;
+      color: #fff;
+      cursor: pointer;
+      transition: background .2s ease-in-out;
+    }
+    input[type=submit]{
+      background-color: #8cc751;
+    }
+    input[type=file]::file-selector-button:hover {
+      background: #00693E;
+    }
+
+
+    
+   .submit {
+    /* Define your desired styles here */
+    background-color: #00FFAB;
+    color: white;
+    border: none;
+    padding: 9px 12px;
+    border-radius: 4px;
+    font-size: 16px;
+    cursor: pointer;
+    /* position: fixed; */
+    height: auto;
+    /* transform: translate(11%, -50%); */
+  }
+  
+  .submit:hover {
+    background-color: #228B22;
+  }
+  
+  .submit:focus {
+    outline: none;
+  }
+
+
+    #main_container{
+      position: relative;
+      margin-bottom: none;
+      width: 100%;
+        /* Sticky */
+    }
+    .bg_container{
+      background-repeat: no-repeat;
+      background-size: cover;
+      background-attachment: fixed;
+     
+    }
+    .bg_container img{
+      background-repeat: no-repeat;
+      background-size: cover;
+      background-attachment: fixed;
+      width: 100%;
+      height: 700px; 
+    }
+    #div_2{
+      background-color: white;
+      margin-top:100px;
+      margin-bottom:100px;
+      font-family: 'Century Gothic';
+      margin-left:10% ;
+      margin-right:10% ;
+    }
+    #service{
+      font-size:xx-large;
+      text-align: center;
+      padding-top: 50px;
+      font-weight:500;
+    }
+    #categories{
+      font-size:xx-large;
+      text-align: center;
+      font-weight:500;
+      letter-spacing: 3px;
+      text-decoration: 1px solid green underline;
+    }
+    #div_2{
+      display: inline-block;
+    }
+    #s_con{
+      display: inline-flex;
+    }
+    .service_con{
+      width: 100%;
+      display: inline-block;
+    }
+    .service_con img{
+      width: 80%;
+      height: 300px;
+    }
+    #div_3 img{
+      width: 98%;
+      height: 700px;
+      filter: brightness(70%);
+      background-repeat: no-repeat;
+      background-size: cover;
+      background-attachment: fixed;
+      margin-left:1%;
+      margin-right:1%;
+    }
+
+
+    .categories_con{
+      width: 100%;
+      display: inline-block;
+      margin-right: 50px;
+      text-align: center;
+    }
+    .categories_con img{
+      width: 120%;
+      height: 300px;
+    }
+    .border{
+      width: auto;
+      background-color:green ;
+      padding: 1px;
+    }
+    #footer{
+          padding: 50px;
+          margin-bottom: 0%;
+          font-family: 'Century Gothic';
+      }
+      .footer_con{
+          display: inline-block;
+          padding-top: 10px;
+          letter-spacing: 1px;
+          text-align: justify;
+          margin-left: 10%;
+      }
+      #footer p{
+          color: black;
+          font-size: 13px;
+      }
+      #ftitle{
+          font-weight: 500;
+          
+      }
+      #credits{
+          color: black;
+          text-align: center;
+          padding: 10px;
+          font-size: 10px;
+          margin-top: 30px;
+      }
+    @media (max-width: 768px) {
+      .bg_container img {
+        height: auto;
+      }
+      #cnn_con{
+        top: 5%;
+        background-color:#ccc;
+        padding: 20px;
+        width: auto;
+      }
+      #cnn_con img{
+        width: 100%;
+      }
+      #div_2{
+      background-color: white;
+      margin-top:0%;
+      margin-left: 100px;
+    }
+    #s_con{
+      display: block;
+    }
+    #service{
+      text-align: left;
+    }
+    #div_3 img{
+      height: 500px;
+    }
+    .service_con{
+      margin-top: 30px;
+    }
+    .categories_con img{
+      width: 100%;
+    }
+
+    }
+
+   
+
+
+
+
+  </style>
+
+
+
+</head>
+<body>
+
+  <!-- Nav -->
+  <div id="nav">
+    <img src="{{ url_for('static', filename='upload/logo.png') }}" alt="efashion">
+  </div>
+
+<div id="main_container">
+
+  <div id="cnn_con">
+    <center>
+      <img src="{{ url_for('static', filename='upload/b.png') }}" >
+      <form  class="form-inline" action = "/" method = "post" enctype="multipart/form-data">
+      <input class="style" type="file" style="border: 1px solid white;" name="file" required/>
+      
+
+      <input class="submit" type ="submit" class="btn btn-info" value="Submit">
+      </form>
+    </center>
+  </div>
+
+
+  <!-- DIV 1 -->
+  <div class="bg_container" style="height: 600px;">
+    <img src="{{ url_for('static', filename='upload/div6.1.png') }}" >
+  </div>
+
+<!-- DIV 2 -->
+<div id="div_2">
+  <div id="service"><p>Services</p></div>
+  <div id="s_con">
+    <div class="service_con">
+      <img src="{{ url_for('static', filename='upload/div2_1.jpg') }}" alt="" srcset="">
+      <p>Recommendations</p>
+      <p style="font-size: small; font-weight: 200;  margin-right: 20px;">Find the recommendation that suits your preference.</p>
+    </div>
+    <div class="service_con">
+      <img src="{{ url_for('static', filename='upload/div2_2.jpg') }}" alt="" srcset="">
+      <p>Clothing Prediction</p>
+      <p style="font-size: small; font-weight: 200; margin-right: 20px;">See the clothings form different store based on the predicted category.</p>
+    </div>
+    <div class="service_con">
+      <img src="{{ url_for('static', filename='upload/div2_3.jpg') }}"  alt="" srcset="">
+      <p>efashion Categories</p>
+      <p style="font-size: small; font-weight: 200; margin-right: 20px;">9 clothing category available.</p>
+    </div>
+  </div>
+</div>
+
+<!-- DIV 3 -->
+<div id="div_3">
+  <img src="{{ url_for('static', filename='upload/div3.jpg') }}" >
+</div>
+
+
+<!-- DIV 4 -->
+<div id="div_2" style="margin-top: 5%;">
+  <div id="s_con">
+    <div class="categories_con">
+      <p style="text-align: center;">Skirt</p>
+      <img src="{{ url_for('static', filename='upload/skirt.jpg') }}" alt="" srcset="">
+    </div>
+    <div class="categories_con">
+      <p style="text-align: center;">Shorts</p>
+      <img src="{{ url_for('static', filename='upload/shorts.jpg') }}" alt="" srcset="">
+    </div>
+    <div class="categories_con">
+      <p style="text-align: center;">Shirt</p>
+      <img src="{{ url_for('static', filename='upload/shirts.jpg') }}"  alt="" srcset="">
+    </div>
+    <div class="categories_con">
+      <p style="text-align: center;">Pants</p>
+      <img src="{{ url_for('static', filename='upload/pants.jpg') }}"  alt="" srcset="">
+    </div>
+  </div>
+
+
+  <div id="categories" > <p>Categories</p> </div>
+
+  <div id="s_con">
+    <div class="categories_con">
+      <img src="{{ url_for('static', filename='upload/jeans.jpg') }}" alt="" srcset="">
+      <p style="text-align: center;">Jeans</p>
+    </div>
+    <div class="categories_con">
+      <img src="{{ url_for('static', filename='upload/jacket.jpg') }}" alt="" srcset="">
+      <p style="text-align: center;">Jacket</p>
+    </div>
+    <div class="categories_con">
+      <img src="{{ url_for('static', filename='upload/dress.jpg') }}"  alt="" srcset="">
+      <p style="text-align: center;">Dress</p>
+    </div>
+    <div class="categories_con">
+      <img src="{{ url_for('static', filename='upload/belt.jpg') }}"  alt="" srcset="">
+      <p style="text-align: center;">Belt</p>
+    </div>
+  </div>
+</div>
+
+<div class='border'></div>
+<div id="footer">
+  <div class='footer_con'>
+      <p id="ftitle" class='add'>ADDRESS</p>
+      <p style="font-size: 15px;">Lower Penthouse, Fort Legend Towers, 3rd Avenue cor. <br> 31st Street, Bonifacio Global City, Taguig City</p>
+      <p style="font-size: 15px;">A.Z Avis Street Extension, Reiverside, Pasig, 1600 Metro Manila</p>
+  </div>
+
+  <div  class='footer_con' class='num'>
+      <p id="ftitle">CONTACT</p> 
+      <p style="font-size: 15px;">(02) 8828 7888 </p>
+
+      <p style="font-size: 15px;">primapasta03@gmail.com</p>
+  </div>
+  <div id='credits'>© 2023 Manalo Emielou and Effie Sarco.</div><br>  
+</div>  
+</div>
+
+
+
+</div>
+</body>
+</html>
